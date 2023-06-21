@@ -1,0 +1,9 @@
+/* Эффект изменения свойств при наведении */
+.tab-content p:hover {
+
+
+    background-color: #f2f2f2;
+
+
+    color: #333;
+}

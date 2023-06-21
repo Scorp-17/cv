@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Мое резюме</title>
+    <style>
+    /* Общие стили */
+    body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+    }
+
+    .background-video video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.5;
+    }
+
+    nav {
+        background-color: #333;
+        position: relative;
+        z-index: 1;
+    }
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        display: inline-block;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px 20px;
+        text-decoration: none;
+      color: #fff; /* Цвет текста ссылок */
+    }
+
+    .tabs {
+        padding: 20px;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Стили для вкладок */
+    .tab {
+        display: none;
+    }
+
+    /* Стили для активной вкладки */
+    .tab.active {
+        display: block;
+    }
+
+    /* Стили для эффекта перехода */
+    .fade {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .fade.active {
+        opacity: 1;
+    }
+
+    /* Стили для текстового блока */
+    .text-block {
+        background-color: #f2f2f2;
+        padding: 20px;
+        margin-bottom: 20px;
+      line-height: 1.5; /* Межстрочный интервал */
+      text-align: justify; /* Выравнивание текста по ширине */
+    }
+
+    /* Стили для заголовков */
+    h1, h3 {
+        color: #333;
+    }
+
+    /* Стили для фото */
+    .photo {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .photo img {
+        width: 200px;
+        height: auto;
+        border-radius: 50%;
+    }
+    </style>
+</head>
+<body>
+    <div class="background-video">
+    <video autoplay muted loop>
+        <source src="https://player.vimeo.com/external/291016529.sd.mp4?s=e52adcf963217c503789df1cf688d932cbc4ee57&amp;profile_id=164&amp;oauth2_token_id=57447761" type="video/mp4">
+    </video>
+    </div>
+
+    <nav>
+    <ul>
+        <li><a href="#main">Основная информация</a></li>
+        <li><a href="#skills">Профессиональные навыки и опыт работы</a></li>
+        <li><a href="#portfolio">Портфолио</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+    </ul>
+    </nav>
+
+    <div class="tabs">
+    <div id="main" class="tab active fade">
+        <h1>Основная информация</h1>
+        <div class="text-block">
+        <div class="photo">
+            <img src="path_to_your_photo.jpg" alt="Мое фото">
+        </div>
+        <p>
+            Павел М.<br>
+            +480 (96) 503-36-057 (с 08:00 до 20:00)<br>
+            453286@yandex.ru<br>
+            Польша<br>
+            Дата рождения: 25.02.1988 (34 года)
+        </p>
+        </div>
+    </div>
+
+    <div id="skills" class="tab fade">
+        <h1>Профессиональные навыки и опыт работы</h1>
+        <div class="text-block">
+        <h3>Профессиональные навыки:</h3>
+        <ul>
+            <li>Веб-разработка (HTML, CSS, JavaScript)</li>
+            <li>Разработка веб-интерфейсов</li>
+            <li>Верстка адаптивных сайтов</li>
+            <li>Оптимизация сайтов для поисковых систем (SEO)</li>
+            <li>Работа с базами данных (SQL)</li>
+        </ul>
+
+        <h3>Опыт работы:</h3>
+        <ul>
+            <li>2015-2020: Веб-разработчик в компании "WebTech"</li>
+            <li>2010-2015: Фрилансер по веб-разработке</li>
+        </ul>
+        </div>
+    </div>
+
+    <div id="portfolio" class="tab fade">
+        <h1>Портфолио</h1>
+        <div class="text-block">
+        <h3>Примеры моих работ:</h3>
+        <ul>
+            <li><a href="https://scorp-17.github.io/Mi-first-project/">Проект 1</a></li>
+            <li><a href="https://scorp-17.github.io/burgers-landing/">Проект 2</a></li>
+            <li><a href="https://scorp-17.github.io/kolor-square/">Проект 3</a></li>
+        </ul>
+        </div>
+    </div>
+
+    <div id="contacts" class="tab fade">
+        <h1>Контакты</h1>
+        <div class="text-block">
+        <p>
+            Связаться со мной можно по следующим контактам:<br>
+            Телефон: +480 (96) 304-48-47 (с 08:00 до 20:00)<br>
+            Email: safafas3@yandex.ru<br>
+            Польша
+        </p>
+        </div>
+    </div>
+    </div>
+
+    <script>
+    // Обработчик кликов по ссылкам
+    var tabs = document.querySelectorAll('.tab');
+    var links = document.querySelectorAll('nav a');
+
+    links.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        // Убираем активный класс у всех ссылок и вкладок
+        links.forEach(function(link) {
+            link.classList.remove('active');
+        });
+
+        tabs.forEach(function(tab) {
+            tab.classList.remove('active', 'fade');
+        });
+
+        // Добавляем активный класс кликнутой ссылке и соответствующей вкладке
+        var target = this.getAttribute('href').substring(1);
+        var targetTab = document.getElementById(target);
+
+        this.classList.add('active');
+        targetTab.classList.add('active', 'fade');
+        });
+    });
+    </script>
+</body>
+</html>
